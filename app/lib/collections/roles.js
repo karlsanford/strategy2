@@ -1,6 +1,6 @@
 Roles = new Mongo.Collection('roles');
 
-Roles.attachSchema(new SimpleSchema({
+RolesSchema = new SimpleSchema({
   roleName:{
     type: String,
     label: "Role Name",
@@ -12,7 +12,9 @@ Roles.attachSchema(new SimpleSchema({
     max: 1024,
     optional: true
   }
-}));
+});
+
+Roles.attachSchema(RolesSchema);
 
 if (Meteor.isServer) {
   Roles.allow({
@@ -28,18 +30,10 @@ if (Meteor.isServer) {
       return true;
     }
   });
-
-  Roles.deny({
-    insert: function (userId, doc) {
-      return true;
-    },
-
-    update: function (userId, doc, fieldNames, modifier) {
-      return true;
-    },
-
-    remove: function (userId, doc) {
-      return true;
-    }
-  });
 }
+
+Roles.helpers({
+  goals: function(){
+    return Goals.find({roleId:this._id});
+  }
+});

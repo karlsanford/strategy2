@@ -1,0 +1,24 @@
+<template name="ListRoles">
+  <div class="list-roles container">
+    <h1>List Roles</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each roles}}
+            <tr>
+                <td>{{roleName}}</td>
+                <td>{{roleDescription}}</td>
+                <td>{{#linkTo route="editRole"}}<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>{{/linkTo}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+      {{> CreateRole}}
+  </div>
+</template>

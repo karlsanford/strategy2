@@ -1,0 +1,9 @@
+<template name="EditGoal">
+  <div class="edit-goal">
+    <h1>Edit Goal</h1>
+      {{> quickForm collection="Goals" doc=this id="editGoalForm" type="update" buttonContent="Update"}}
+      {{> quickRemoveButton collection="Goals" _id=this._id  id="deleteGoalButton" beforeRemove=beforeRemove class="btn btn-danger"}}
+
+      {{role.roleName}}
+  </div>
+</template>

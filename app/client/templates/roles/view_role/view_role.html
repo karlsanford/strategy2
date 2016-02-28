@@ -1,0 +1,15 @@
+<template name="ViewRole">
+  <div class="view-role">
+    <h1>role</h1>
+      {{roleName}}
+      {{roleDescription}}
+      {{_id}}
+      <h2>Goals</h2>
+      <ul>
+          {{#each goals}}
+              <li>{{goalName}}</li>
+          {{/each}}
+      </ul>
+
+  </div>
+</template>

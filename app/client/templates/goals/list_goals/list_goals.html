@@ -1,0 +1,29 @@
+<template name="ListGoals">
+    <div class="list-goals">
+        <h1>Goals</h1>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Goal Name</th>
+                <th>Goal Description</th>
+                <th>Role Id</th>
+                <th>Role Name</th>
+                <th>Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each goals}}
+                <tr>
+
+                    <td>{{goalName}}</td>
+                    <td>{{goalDescription}}</td>
+                    <td>{{roleId}}</td>
+                    <td>{{role.roleName}}</td>
+                    <td>{{#linkTo route='editGoal'}}<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>{{/linkTo}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+        {{> CreateGoal}}
+    </div>
+</template>

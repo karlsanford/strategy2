@@ -1,4 +1,4 @@
-RolesController = RouteController.extend({
+GoalsController = RouteController.extend({
   
   // A place to put your subscriptions
   // this.subscribe('items');
@@ -6,27 +6,22 @@ RolesController = RouteController.extend({
   // this.subscribe('item', this.params._id).wait();
   
   subscriptions: function() {
-    this.subscribe('roles');
     this.subscribe('goals');
+    this.subscribe('roles');
   },
   data: function(){
-    return Roles.findOne({_id:this.params._id});
+    return Goals.findOne({_id:this.params._id});
   },
-  create: function(){
-    this.render('CreateRole',{});
+  insert: function(){
+    this.render('CreateGoal',{});
   },
-
-  list:function(){
-    this.render('ListRoles',{});
+  list: function(){
+    this.render('ListGoals',{});
   },
-  edit:function(){
-    this.render('EditRole',{});
+  edit: function(){
+    this.render('EditGoal',{});
   },
-  view:function(){
-    this.render('ViewRole',{})
-  },
-
-
+  
   // Subscriptions or other things we want to "wait" on. This also
   // automatically uses the loading hook. That's the only difference between
   // this option and the subscriptions option above.
@@ -42,7 +37,6 @@ RolesController = RouteController.extend({
   // return Posts.findOne({_id: this.params._id});
   
 
-  
   // You can provide any of the hook options
   
   onRun: function () {

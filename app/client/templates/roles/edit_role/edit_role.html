@@ -1,0 +1,13 @@
+<template name="EditRole">
+  <div class="edit-role">
+    <h1>Edit Role</h1>
+      {{> quickForm collection="Roles" doc=this id="editRoleForm" type="update" buttonContent="Update"}}
+      <br>
+      <ul>
+          {{#each goals}}
+              <li>{{goalName}}</li>
+          {{/each}}
+      </ul>
+
+  </div>
+</template>
